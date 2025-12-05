@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../store/authSlice";
+import { loginUser } from "../../store/authSlice";
 // for logout
 import Cookies from "js-cookie";
-import { logout } from "../store/authSlice";
+import { logout } from "../../store/authSlice";
 
 export default function Login() {
   const [email, setEmail] = useState("");

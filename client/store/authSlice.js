@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
-import api from "../api/api";
+import api from "../src/api/api";
 
 // Async login
 export const loginUser = createAsyncThunk(
