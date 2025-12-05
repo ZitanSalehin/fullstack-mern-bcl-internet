@@ -57,7 +57,6 @@ export default function Dashboard() {
         </button>
       </aside>
 
-      {/* -------- Main Content -------- */}
       <main className="flex-1 p-8 overflow-auto">
         <h1 className="text-3xl font-bold mb-6">
           Welcome, <span className="text-blue-600">{role}</span>
