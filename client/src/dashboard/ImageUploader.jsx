@@ -61,16 +61,15 @@ export default function ImageUploader() {
       </div>
 
       {/* Images */}
-      <div className="flex gap-2 w-[1000px] h-[400px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {images.map((img) => (
-          <div key={img._id} className="relative w-[400px] h-[400px]">
+          <div key={img._id} className="relative w-full h-64">
             <img
               src={`http://localhost:5000${img.url}`}
-              className="w-[400px] h-[400px] object-cover rounded"
+              className="w-full h-full object-cover rounded"
               alt="slider"
-              width="2000"
-              height="2000"
             />
+
             <button
               onClick={() => deleteImage(img._id)}
               className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded"

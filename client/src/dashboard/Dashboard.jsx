@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { logout } from "../../store/authSlice";
 import ImageUploader from "./ImageUploader";
+import PackageBuilder from "./PackageBuilder";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -21,43 +22,61 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* -------- Sidebar (Inside Dashboard) -------- */}
-      <aside className="w-64 shadow-lg p-6 flex flex-col h-screen">
-        {/* Dashboard Title */}
-        <h2 className="text-2xl font-bold text-blue-600 mb-8">Dashboard</h2>
+    <div className="flex flex-col lg:flex-row h-screen bg-gray-100">
+      {/* -------- Sidebar / Topbar -------- */}
+      <aside
+        className="
+      w-full lg:w-64
+      shadow-lg p-4 lg:p-6 
+      flex lg:flex-col items-center lg:items-start
+      bg-white
+      lg:h-screen
+    "
+      >
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-blue-600 mb-4 lg:mb-8">
+          Dashboard
+        </h2>
 
-        {/* Menu Items */}
-        <button
-          onClick={() => setActive("image")}
-          className={`text-left px-4 py-2 rounded-md mb-2 font-medium ${
+        {/* Menu Container */}
+        <div className="flex lg:flex-col gap-4 flex-1">
+          {/* Image Uploader */}
+          <button
+            onClick={() => setActive("image")}
+            className={`px-4 py-2 rounded-md font-medium whitespace-nowrap
+          ${
             active === "image" ? "bg-blue-600 text-white" : "hover:bg-blue-100"
           }`}
-        >
-          📁 Image Uploader
-        </button>
+          >
+            📁 Image Uploader
+          </button>
 
-        <button
-          onClick={() => setActive("offer")}
-          className={`text-left px-4 py-2 rounded-md mb-2 font-medium ${
+          {/* Offer Limit */}
+          <button
+            onClick={() => setActive("offer")}
+            className={`px-4 py-2 rounded-md font-medium whitespace-nowrap
+          ${
             active === "offer" ? "bg-blue-600 text-white" : "hover:bg-blue-100"
           }`}
-        >
-          🎁 Offer Limit
-        </button>
+          >
+            🎁 Offer Limit
+          </button>
+        </div>
 
-        {/* Push logout bottom */}
-        <div className="flex-1"></div>
-
+        {/* Logout (Right in mobile, bottom in desktop) */}
         <button
           onClick={handleLogout}
-          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          className="
+        bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 
+        mt-0 lg:mt-auto
+      "
         >
           Logout
         </button>
       </aside>
 
-      <main className="flex-1 p-8 overflow-auto">
+      {/* -------- Main Content -------- */}
+      <main className="flex-1 p-4 lg:p-8 overflow-auto">
         <h1 className="text-3xl font-bold mb-6">
           Welcome, <span className="text-blue-600">{role}</span>
         </h1>
@@ -65,22 +84,7 @@ export default function Dashboard() {
         {/* Conditional Pages */}
         {active === "image" && <ImageUploader />}
 
-        {active === "offer" && (
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Offer Limit Settings</h2>
-
-            <label className="block mb-2 font-medium">Set Offer Limit</label>
-            <input
-              type="number"
-              className="border p-2 rounded w-full mb-4"
-              placeholder="Enter offer limit…"
-            />
-
-            <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-              Save Offer Limit
-            </button>
-          </div>
-        )}
+        {active === "offer" && <PackageBuilder />}
       </main>
     </div>
   );
