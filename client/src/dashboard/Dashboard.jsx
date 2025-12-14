@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { logout } from "../../store/authSlice";
 import ImageUploader from "./ImageUploader";
-import PackageBuilder from "./PackageBuilder";
+import PackagesAdmin from "./PackagesAdmin";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -84,7 +84,7 @@ export default function Dashboard() {
         {/* Conditional Pages */}
         {active === "image" && <ImageUploader />}
 
-        {active === "offer" && <PackageBuilder />}
+        {active === "offer" && <PackagesAdmin />}
       </main>
     </div>
   );
