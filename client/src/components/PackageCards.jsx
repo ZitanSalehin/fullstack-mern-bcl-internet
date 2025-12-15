@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -6,164 +7,57 @@ import { useSearchParams } from "react-router-dom";
 import { popularBadge, router } from "../assets/index";
 import ConnectionSupport from "../pages/home/ConnectionSupport";
 
-const packagesData = [
-  {
-    title: "SmartShop Pack",
-    speed: 40,
-    price: 899,
-    popular: true,
-    privileges: [
-      "Bufferless YouTube & Facebook",
-      "High Speed BDIX",
-      "24/7 Customer Service",
-      "Bufferless HD, FHD Video",
-      "Stable & Secure Connectivity for Your Shop",
-      "Reliable speed for POS, CCTV, and daily operations",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Surfer Plus",
-    speed: 50,
-    price: 1050,
-    popular: true,
-    privileges: [
-      "Bufferless YouTube & Facebook",
-      "High Speed BDIX",
-      "24/7 Customer Service",
-      "Bufferless HD, FHD 4K Video",
-      "Bufferless Netflix, Bigo, TikTok, Imo, Likee",
-      "Popular Games as Optimal Latency for users",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Cheetah Prime",
-    speed: 60,
-    price: 1275,
-    popular: true,
-    privileges: [
-      "Bufferless Facebook, YouTube & Live Streaming",
-      "High Speed BDIX",
-      "24/7 Customer Service",
-      "Bufferless HD, FHD, 4K Video",
-      "Popular Games as Optimal Latency for users",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Group Student Pack",
-    speed: 70,
-    price: 1375,
-    popular: true,
-    privileges: [
-      "Bufferless Facebook, YouTube & Live Streaming",
-      "Bufferless HD, FHD, 4K Video",
-      "High Speed BDIX",
-      "Perfect for multiple users and connected devices",
-      "Popular Games as Optimal Latency for 4 users",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Gamers",
-    speed: 75,
-    price: 1475,
-    popular: true,
-    privileges: [
-      "Bufferless 4K Streaming",
-      "Optimized Routing for Gaming",
-      "Stable Ping, Low Latency",
-      "Lightening Fast BDIX Connectivity",
-      "Dedicated Gaming Cache Servers",
-      "Quick Link: Reduced Server Time",
-      "24/7 Customer Service",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Eagle Advance",
-    speed: 80,
-    price: 1700,
-    popular: true,
-    privileges: [
-      "Bufferless Facebook, YouTube, Live Streaming, Zoom & Teams",
-      "Bufferless QHD, FHD 4K Video",
-      "High Speed BDIX",
-      "Popular Games as Optimal Latency for users",
-      "24/7 Customer Service",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Hawk Lite",
-    speed: 85,
-    price: 1800,
-    popular: true,
-    privileges: [
-      "Bufferless Facebook, YouTube, Live Streaming, Zoom & Teams",
-      "Bufferless Netflix & Prime Video",
-      "Bufferless QHD, FHD 4K Video",
-      "High Speed BDIX",
-      "24/7 Customer Service",
-      "Popular Games as Optimal Latency for users",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-  {
-    title: "Hawk Advance",
-    speed: 90,
-    price: 1900,
-    popular: true,
-    privileges: [
-      "Bufferless Facebook, YouTube, Live Streaming, Zoom & Teams",
-      "Bufferless QHD, FHD 4K Video",
-      "Bufferless Netflix & Prime Video",
-      "High Speed BDIX",
-      "24/7 Customer Service",
-      "Popular Games as Optimal Latency for 6 users",
-      "Package Downgrade Charge Applicable",
-    ],
-  },
-];
-
 export default function PackageCards() {
   const [searchParams] = useSearchParams();
 
-  // Get initial values from URL params or fallback defaults
-  const initialPrice = [
-    Number(searchParams.get("minPrice")) || 500,
-    Number(searchParams.get("maxPrice")) || 1500,
-  ];
-  const initialSpeed = [
-    Number(searchParams.get("minSpeed")) || 30,
-    Number(searchParams.get("maxSpeed")) || 100,
-  ];
-
-  const [price, setPrice] = useState(initialPrice);
-  const [speed, setSpeed] = useState(initialSpeed);
-
+  const [packages, setPackages] = useState([]);
+  const [price, setPrice] = useState([500, 1500]);
+  const [speed, setSpeed] = useState([30, 100]);
   const [openPrice, setOpenPrice] = useState(true);
   const [openSpeed, setOpenSpeed] = useState(true);
 
-  // Filter packages according to current price and speed
+  // Fetch packages from API
+  const fetchPackages = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/packages");
+      // Ensure speed and price are numbers
+      const data = res.data.map((pkg) => ({
+        ...pkg,
+        speed: Number(pkg.speed),
+        price: Number(pkg.price),
+      }));
+      setPackages(data);
+    } catch (err) {
+      console.error("Error fetching packages:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchPackages();
+  }, []);
+
+  // Initialize sliders from URL params
+  useEffect(() => {
+    const minPrice = Number(searchParams.get("minPrice")) || 500;
+    const maxPrice = Number(searchParams.get("maxPrice")) || 1500;
+    const minSpeed = Number(searchParams.get("minSpeed")) || 30;
+    const maxSpeed = Number(searchParams.get("maxSpeed")) || 100;
+    setPrice([minPrice, maxPrice]);
+    setSpeed([minSpeed, maxSpeed]);
+  }, [searchParams]);
+
+  // Filtered packages according to sliders
   const filteredPackages = useMemo(
     () =>
-      packagesData.filter(
+      packages.filter(
         (pkg) =>
           pkg.price >= price[0] &&
           pkg.price <= price[1] &&
           pkg.speed >= speed[0] &&
           pkg.speed <= speed[1]
       ),
-    [price, speed]
+    [packages, price, speed]
   );
-
-  // Update sliders if URL params change
-  useEffect(() => {
-    setPrice(initialPrice);
-    setSpeed(initialSpeed);
-  }, [searchParams]);
 
   return (
     <section className="py-10 px-4 md:px-0 bg-gray-50">
@@ -173,153 +67,135 @@ export default function PackageCards() {
 
       {/* Filter Sliders */}
       <div className="container mx-auto lg:px-32 flex flex-col md:flex-row gap-6 mb-8">
-        {/* ---------------- PRICE FILTER ---------------- */}
-        <div
-          className={`mx-auto rounded-2xl h-fit ${
-            openPrice
-              ? "bg-[#FDF0E3] w-[90vw] lg:w-105 p-6"
-              : "bg-[#F2F3F4] w-[80vw] lg:w-90 p-6"
-          } transition-all duration-300 ease-in-out`}
-        >
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-2xl font-semibold w-full">
-              <div className="flex justify-between items-center">
-                <div className="text-[#0E4F9D]">Price range:</div>
+        {/* PRICE FILTER */}
+        <SliderFilter
+          title="Price range"
+          value={price}
+          setValue={setPrice}
+          min={500}
+          max={2000}
+          unit="BDT"
+          open={openPrice}
+          setOpen={setOpenPrice}
+          trackColor="#0E4F9D"
+        />
 
-                <button
-                  onClick={() => setOpenPrice(!openPrice)}
-                  className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#0E4F9D] text-white transition-colors duration-300 cursor-pointer"
-                >
-                  {openPrice ? <X size={24} /> : <ChevronDown size={24} />}
-                </button>
-              </div>
-
-              <div className="flex items-center pt-4 gap-2">
-                <div className="text-gray-700 text-3xl lg:text-4xl">
-                  {price[0]} - {price[1]}
-                </div>
-                <div className="text-gray-700">BDT</div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="overflow-hidden transition-all duration-300 px-4"
-            style={{ height: openPrice ? "40px" : "0px" }}
-          >
-            <Slider
-              range
-              min={500}
-              max={2000}
-              step={50}
-              value={price}
-              onChange={(val) => setPrice(val)}
-              allowCross={false}
-              trackStyle={[{ height: 12, backgroundColor: "#0E4F9D" }]}
-              railStyle={{ height: 12, backgroundColor: "lightgrey" }}
-              handleStyle={[
-                {
-                  height: 24,
-                  width: 24,
-                  marginTop: -6,
-                  backgroundColor: "#fff",
-                  border: "4px solid #0E4F9D",
-                },
-                {
-                  height: 24,
-                  width: 24,
-                  marginTop: -6,
-                  backgroundColor: "#fff",
-                  border: "4px solid #0E4F9D",
-                },
-              ]}
-            />
-          </div>
-        </div>
-
-        {/* ---------------- SPEED FILTER ---------------- */}
-        <div
-          className={`mx-auto rounded-2xl h-fit ${
-            openSpeed
-              ? "bg-[#FDF0E3] w-[90vw] lg:w-105 p-6"
-              : "bg-[#F2F3F4] w-[80vw] lg:w-90 p-6"
-          } transition-all duration-300 ease-in-out`}
-        >
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-xl lg:text-2xl font-semibold w-full">
-              <div className="flex justify-between items-center">
-                <div className="text-[#0E4F9D]">Speed range:</div>
-
-                <button
-                  onClick={() => setOpenSpeed(!openSpeed)}
-                  className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#0E4F9D] text-white transition-colors duration-300 cursor-pointer"
-                >
-                  {openSpeed ? <X size={24} /> : <ChevronDown size={24} />}
-                </button>
-              </div>
-
-              <div className="flex items-center pt-4 gap-2">
-                <div className="text-gray-700 text-3xl lg:text-4xl">
-                  {speed[0]} - {speed[1]}
-                </div>
-                <div className="text-gray-700">Mbps</div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="overflow-hidden transition-all duration-300 px-4"
-            style={{ height: openSpeed ? "40px" : "0px" }}
-          >
-            <Slider
-              range
-              min={30}
-              max={100}
-              step={5}
-              value={speed}
-              onChange={(val) => setSpeed(val)}
-              allowCross={false}
-              trackStyle={[{ height: 12, backgroundColor: "#047857" }]}
-              railStyle={{ height: 12, backgroundColor: "lightgrey" }}
-              handleStyle={[
-                {
-                  border: "4px solid #047857",
-                  height: 24,
-                  width: 24,
-                  backgroundColor: "#fff",
-                  marginTop: -6,
-                },
-                {
-                  border: "4px solid #047857",
-                  height: 24,
-                  width: 24,
-                  backgroundColor: "#fff",
-                  marginTop: -6,
-                },
-              ]}
-            />
-          </div>
-        </div>
+        {/* SPEED FILTER */}
+        <SliderFilter
+          title="Speed range"
+          value={speed}
+          setValue={setSpeed}
+          min={30}
+          max={100}
+          unit="Mbps"
+          step={5}
+          open={openSpeed}
+          setOpen={setOpenSpeed}
+          trackColor="#047857"
+        />
       </div>
 
-      {/* ---------------- PACKAGE CARDS ---------------- */}
+      {/* PACKAGE CARDS */}
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
         {filteredPackages.length > 0 ? (
-          filteredPackages.map((pkg, index) => (
-            <PackageCard key={index} pkg={pkg} />
-          ))
+          [...filteredPackages]
+            .sort((a, b) => {
+              // Primary: price (ascending)
+              if (a.price !== b.price) return a.price - b.price;
+              // Secondary: speed (ascending)
+              return a.speed - b.speed;
+            })
+            .map((pkg, index) => <PackageCard key={index} pkg={pkg} />)
         ) : (
           <p className="col-span-full text-center text-gray-500">
             No packages found in this range.
           </p>
         )}
       </div>
+
       <br />
       <img src={router} alt="" />
       <div id="connection-support">
         <ConnectionSupport />
       </div>
     </section>
+  );
+}
+
+function SliderFilter({
+  title,
+  value,
+  setValue,
+  min,
+  max,
+  unit,
+  step = 50,
+  open,
+  setOpen,
+  trackColor,
+}) {
+  return (
+    <div
+      className={`mx-auto rounded-2xl h-fit ${
+        open
+          ? "bg-[#FDF0E3] w-[90vw] lg:w-105 p-6"
+          : "bg-[#F2F3F4] w-[80vw] lg:w-90 p-6"
+      } transition-all duration-300 ease-in-out`}
+    >
+      <div className="flex justify-between items-center mb-4">
+        <div className="text-2xl font-semibold w-full">
+          <div className="flex justify-between items-center">
+            <div className="text-[#0E4F9D]">{title}:</div>
+            <button
+              onClick={() => setOpen(!open)}
+              className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#0E4F9D] text-white transition-colors duration-300 cursor-pointer"
+            >
+              {open ? <X size={24} /> : <ChevronDown size={24} />}
+            </button>
+          </div>
+
+          <div className="flex items-center pt-4 gap-2">
+            <div className="text-gray-700 text-3xl lg:text-4xl">
+              {value[0]} - {value[1]}
+            </div>
+            <div className="text-gray-700">{unit}</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="overflow-hidden transition-all duration-300 px-4"
+        style={{ height: open ? "40px" : "0px" }}
+      >
+        <Slider
+          range
+          min={min}
+          max={max}
+          step={step}
+          value={value}
+          onChange={(val) => setValue(val)}
+          allowCross={false}
+          trackStyle={[{ height: 12, backgroundColor: trackColor }]}
+          railStyle={{ height: 12, backgroundColor: "lightgrey" }}
+          handleStyle={[
+            {
+              height: 24,
+              width: 24,
+              marginTop: -6,
+              backgroundColor: "#fff",
+              border: `4px solid ${trackColor}`,
+            },
+            {
+              height: 24,
+              width: 24,
+              marginTop: -6,
+              backgroundColor: "#fff",
+              border: `4px solid ${trackColor}`,
+            },
+          ]}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -362,7 +238,7 @@ function PackageCard({ pkg }) {
           <div className="mt-3">
             <h4 className="font-semibold mb-2">Exclusive Privileges</h4>
             <ul className="text-sm text-gray-700 space-y-1">
-              {pkg.privileges.map((item, i) => (
+              {(pkg.privileges || []).map((item, i) => (
                 <li key={i}>• {item}</li>
               ))}
             </ul>
@@ -370,11 +246,11 @@ function PackageCard({ pkg }) {
         </div>
 
         <button
-          onClick={() => {
-            document.getElementById("connection-support")?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }}
+          onClick={() =>
+            document
+              .getElementById("connection-support")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
           className="mt-5 w-full bg-[#0E4F9D] hover:bg-blue-800 text-white font-semibold py-2 rounded-full cursor-pointer"
         >
           Choose this package
