@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { store } from "../store";
 
 import AdminRoute from "../src/components/AdminRoute";
@@ -19,16 +19,33 @@ import Services from "../src/pages/Services";
 import SpeedCheckPage from "../src/pages/SpeedCheckPage";
 
 // Auth + Admin
+import { useEffect } from "react";
 import Dashboard from "../src/dashboard/Dashboard";
 import Login from "../src/pages/Login";
 import Register from "../src/pages/Register";
 import Layout from "./Layout";
 import Home from "./pages/home/Home";
 
+function TitleHandler() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/dashboard")) {
+      document.title = "BCL Admin";
+    } else {
+      document.title = "BCL Internet";
+    }
+  }, [location.pathname]);
+
+  return null; // This component only manages title
+}
+
 export default function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <TitleHandler />
+
         <Routes>
           {/* Main Layout Wrapper */}
           <Route path="/" element={<Layout />}>

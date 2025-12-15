@@ -53,13 +53,15 @@ export default function Dashboard() {
 
           {/* Offer Limit */}
           <button
-            onClick={() => setActive("offer")}
+            onClick={() => setActive("packages")}
             className={`px-4 py-2 rounded-md font-medium whitespace-nowrap
           ${
-            active === "offer" ? "bg-blue-600 text-white" : "hover:bg-blue-100"
+            active === "packages"
+              ? "bg-blue-600 text-white"
+              : "hover:bg-blue-100"
           }`}
           >
-            🎁 Offer Limit
+            🎁 Package Cards
           </button>
         </div>
 
@@ -84,7 +86,7 @@ export default function Dashboard() {
         {/* Conditional Pages */}
         {active === "image" && <ImageUploader />}
 
-        {active === "offer" && <PackagesAdmin />}
+        {active === "packages" && <PackagesAdmin />}
       </main>
     </div>
   );

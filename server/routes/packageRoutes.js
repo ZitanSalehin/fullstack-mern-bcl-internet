@@ -2,51 +2,108 @@ const express = require("express");
 const router = express.Router();
 const Package = require("../models/Package");
 
-// CREATE package
+// ==========================
+// CREATE PACKAGE
+// ==========================
 router.post("/", async (req, res) => {
   try {
-    const pkg = new Package(req.body);
-    const saved = await pkg.save();
-    res.status(201).json(saved);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+    const { title, speed, price, privileges } = req.body;
 
-// GET all packages
-router.get("/", async (req, res) => {
-  try {
-    const packages = await Package.find().sort({ createdAt: -1 });
-    res.json(packages);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+    // 🔒 VALIDATION
+    if (!title || !/^[A-Za-z\s]+$/.test(title)) {
+      return res.status(400).json({ message: "Invalid title" });
+    }
 
-// ✅ UPDATE package (THIS WAS MISSING)
-router.put("/:id", async (req, res) => {
-  try {
-    const updated = await Package.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+    if (speed < 10 || speed > 450) {
+      return res.status(400).json({ message: "Invalid speed" });
+    }
+
+    if (price < 500 || price > 10000) {
+      return res.status(400).json({ message: "Invalid price" });
+    }
+
+    if (!Array.isArray(privileges) || privileges.length === 0) {
+      return res
+        .status(400)
+        .json({ message: "At least one privilege is required" });
+    }
+
+    const newPackage = new Package({
+      title,
+      speed,
+      price,
+      privileges: privileges.map((p) => p.trim()).filter(Boolean),
     });
 
-    if (!updated) {
+    await newPackage.save();
+    res.status(201).json(newPackage);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// ==========================
+// GET ALL PACKAGES
+// (lowest price → lowest speed)
+// ==========================
+router.get("/", async (req, res) => {
+  try {
+    const packages = await Package.find().sort({
+      price: 1,
+      speed: 1,
+    });
+    res.json(packages);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// ==========================
+// UPDATE PACKAGE
+// ==========================
+router.put("/:id", async (req, res) => {
+  try {
+    const { title, speed, price, privileges } = req.body;
+
+    if (!Array.isArray(privileges) || privileges.length === 0) {
+      return res
+        .status(400)
+        .json({ message: "At least one privilege is required" });
+    }
+
+    const updatedPackage = await Package.findByIdAndUpdate(
+      req.params.id,
+      {
+        title,
+        speed,
+        price,
+        privileges: privileges.map((p) => p.trim()).filter(Boolean),
+      },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedPackage) {
       return res.status(404).json({ message: "Package not found" });
     }
 
-    res.json(updated);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.json(updatedPackage);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
-// DELETE package
+// ==========================
+// DELETE PACKAGE
+// ==========================
 router.delete("/:id", async (req, res) => {
   try {
-    await Package.findByIdAndDelete(req.params.id);
-    res.json({ message: "Package deleted" });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    const deleted = await Package.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ message: "Package not found" });
+    }
+    res.json({ message: "Package deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 

@@ -36,10 +36,10 @@ export default function Header() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/packages">Packages</Link>
+              <Link to="/all-packages">All Packages</Link>
             </li>
             <li>
-              <Link to="/all-packages">All Packages</Link>
+              <Link to="/packages">Filtered Packages</Link>
             </li>
             <li>
               <Link to="/services">Services</Link>

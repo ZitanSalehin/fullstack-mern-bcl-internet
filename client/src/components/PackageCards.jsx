@@ -11,8 +11,8 @@ export default function PackageCards() {
   const [searchParams] = useSearchParams();
 
   const [packages, setPackages] = useState([]);
-  const [price, setPrice] = useState([500, 1500]);
-  const [speed, setSpeed] = useState([30, 100]);
+  const [price, setPrice] = useState([500, 3000]);
+  const [speed, setSpeed] = useState([10, 350]);
   const [openPrice, setOpenPrice] = useState(true);
   const [openSpeed, setOpenSpeed] = useState(true);
 
@@ -25,7 +25,9 @@ export default function PackageCards() {
         ...pkg,
         speed: Number(pkg.speed),
         price: Number(pkg.price),
+        privileges: Array.isArray(pkg.privileges) ? pkg.privileges : [],
       }));
+
       setPackages(data);
     } catch (err) {
       console.error("Error fetching packages:", err);
@@ -39,9 +41,9 @@ export default function PackageCards() {
   // Initialize sliders from URL params
   useEffect(() => {
     const minPrice = Number(searchParams.get("minPrice")) || 500;
-    const maxPrice = Number(searchParams.get("maxPrice")) || 1500;
-    const minSpeed = Number(searchParams.get("minSpeed")) || 30;
-    const maxSpeed = Number(searchParams.get("maxSpeed")) || 100;
+    const maxPrice = Number(searchParams.get("maxPrice")) || 3000;
+    const minSpeed = Number(searchParams.get("minSpeed")) || 10;
+    const maxSpeed = Number(searchParams.get("maxSpeed")) || 350;
     setPrice([minPrice, maxPrice]);
     setSpeed([minSpeed, maxSpeed]);
   }, [searchParams]);
@@ -73,7 +75,7 @@ export default function PackageCards() {
           value={price}
           setValue={setPrice}
           min={500}
-          max={2000}
+          max={8000}
           unit="BDT"
           open={openPrice}
           setOpen={setOpenPrice}
@@ -85,13 +87,13 @@ export default function PackageCards() {
           title="Speed range"
           value={speed}
           setValue={setSpeed}
-          min={30}
-          max={100}
+          min={10}
+          max={450}
           unit="Mbps"
           step={5}
           open={openSpeed}
           setOpen={setOpenSpeed}
-          trackColor="#047857"
+          trackColor="#0E4F9D"
         />
       </div>
 
@@ -232,14 +234,16 @@ function PackageCard({ pkg }) {
 
         <div
           className={`transition-all duration-500 overflow-hidden ${
-            open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            open ? "h-[220px] opacity-100" : "h-0 opacity-0"
           }`}
         >
           <div className="mt-3">
             <h4 className="font-semibold mb-2">Exclusive Privileges</h4>
             <ul className="text-sm text-gray-700 space-y-1">
-              {(pkg.privileges || []).map((item, i) => (
-                <li key={i}>• {item}</li>
+              {pkg.privileges.map((item, i) => (
+                <>
+                  <li key={i}>• {item}</li>
+                </>
               ))}
             </ul>
           </div>

@@ -6,8 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import ReconnectionForm from "./ReconnectionForm";
 
 export default function HomeTabs({
-  priceRange = [500, 2000],
-  speedRange = [30, 100],
+  priceRange = [500, 8000],
+  speedRange = [10, 450],
 }) {
   const navigate = useNavigate();
 
@@ -170,18 +170,18 @@ export default function HomeTabs({
                   value={speed}
                   onChange={(val) => setSpeed(val)}
                   allowCross={false}
-                  trackStyle={[{ height: 12, backgroundColor: "#047857" }]}
+                  trackStyle={[{ height: 12, backgroundColor: "#0E4F9D" }]}
                   railStyle={{ height: 12, backgroundColor: "lightgrey" }}
                   handleStyle={[
                     {
-                      border: "4px solid #047857",
+                      border: "4px solid #0E4F9D",
                       height: 24,
                       width: 24,
                       backgroundColor: "#fff",
                       marginTop: -6,
                     },
                     {
-                      border: "4px solid #047857",
+                      border: "4px solid #0E4F9D",
                       height: 24,
                       width: 24,
                       backgroundColor: "#fff",
