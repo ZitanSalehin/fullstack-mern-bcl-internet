@@ -1,1 +1,84 @@
 @import "tailwindcss";
+
+:root {
+  --color-primary: #00b8ff;
+  --color-secondary: #009bd6;
+  --color-tertiary: #00719c;
+  --color-standard: #00415a;
+  --color-basic: #001f2b;
+}
+
+.text-primary {
+  color: var(--color-standard);
+}
+
+.text-secondary {
+  color: var(--color-basic);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+/* TEXT COLORS */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-tertiary);
+}
+
+.text-standard {
+  color: var(--color-standard);
+}
+
+.text-basic {
+  color: var(--color-basic);
+}
+
+/* BACKGROUND COLORS */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--color-tertiary);
+}
+
+.bg-standard {
+  background-color: var(--color-standard);
+}
+
+.bg-basic {
+  background-color: var(--color-basic);
+}
+
+/* BORDER COLORS */
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+
+.border-tertiary {
+  border-color: var(--color-tertiary);
+}
+
+.border-standard {
+  border-color: var(--color-standard);
+}
+
+.border-basic {
+  border-color: var(--color-basic);
+}

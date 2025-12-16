@@ -1,26 +1,11 @@
 export default function ReconnectionForm() {
   return (
     <div className="max-w-3xl mx-auto p-8 bg-white border border-gray-200 shadow-xl rounded-2xl">
-      <h2 className="text-2xl font-bold mb-6">Select Reason of Reconnection</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        Send Us Your Questiosn
+      </h2>
 
       <form className="flex flex-col gap-6">
-        {/* Reason */}
-        <div>
-          <label className="block text-gray-500 font-semibold mb-1">
-            Reason of Reconnection
-          </label>
-          <select
-            className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg placeholder:text-gray-400 
-              focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200 transition"
-          >
-            <option value="">Select Reason</option>
-            <option value="relocation">Relocation</option>
-            <option value="name_change">Name Change</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        {/* Name */}
         <div>
           <label className="block text-gray-500 font-semibold mb-1">
             Your Name
@@ -28,19 +13,6 @@ export default function ReconnectionForm() {
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg placeholder:text-gray-400 
-              focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200 transition"
-          />
-        </div>
-
-        {/* BCL ID */}
-        <div>
-          <label className="block text-gray-500 font-semibold mb-1">
-            Current BCL ID
-          </label>
-          <input
-            type="text"
-            placeholder="BCL ID"
             className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg placeholder:text-gray-400 
               focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200 transition"
           />
@@ -72,19 +44,6 @@ export default function ReconnectionForm() {
           />
         </div>
 
-        {/* Previous Address */}
-        <div>
-          <label className="block text-gray-500 font-semibold mb-1">
-            Previous Address
-          </label>
-          <textarea
-            placeholder="Previous Address"
-            rows={2}
-            className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg placeholder:text-gray-400
-              focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200 transition"
-          ></textarea>
-        </div>
-
         {/* Current Address */}
         <div>
           <label className="block text-gray-500 font-semibold mb-1">
@@ -98,16 +57,17 @@ export default function ReconnectionForm() {
           ></textarea>
         </div>
 
-        {/* Date */}
+        {/* Messages */}
         <div>
           <label className="block text-gray-500 font-semibold mb-1">
-            Date of Relocation
+            Message
           </label>
-          <input
-            type="date"
+          <textarea
+            placeholder="Write Your Issue"
+            rows={2}
             className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg placeholder:text-gray-400
               focus:outline-none focus:border-gray-300 focus:ring-2 focus:ring-gray-200 transition"
-          />
+          ></textarea>
         </div>
 
         {/* Submit */}

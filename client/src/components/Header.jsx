@@ -10,10 +10,10 @@ export default function Header() {
   return (
     <header className="w-full bg-white relative z-20">
       {/* Top Bar */}
-      <div className="hidden lg:block text-sm bg-[#0E4F9D]">
+      <div className="hidden lg:block text-sm bg-primary">
         <div className="container mx-auto flex flex-row justify-end items-center py-2 px-4">
           <div className="flex items-center gap-2 text-white font-semibold">
-            BRTC Approved Tariff
+            BRTC Approved
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ export default function Header() {
 
         {/* Menu (Desktop) */}
         <nav>
-          <ul className="hidden lg:flex items-center gap-8 font-medium">
+          <ul className="hidden lg:flex items-center gap-8 font-medium text-standard">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -70,13 +70,13 @@ export default function Header() {
             <li className="flex gap-5">
               <Link
                 to="/"
-                className="bg-orange-500 text-white rounded-3xl px-5 py-3"
+                className="bg-secondary text-white rounded-xl px-4 py-2"
               >
                 Quick Pay Bill
               </Link>
               <Link
                 to="/"
-                className="bg-[#0E4F9D] text-white rounded-3xl px-5 py-3"
+                className="bg-tertiary text-white rounded-xl px-4 py-2"
               >
                 Bill Pay
               </Link>
@@ -114,7 +114,7 @@ export default function Header() {
         >
           {/* Header inside drawer (Logo + Close Icon) */}
           <div className="flex justify-between items-center mb-2">
-            <img src={logo} alt="Logo" className="h-12 w-32 object-contain" />
+            <img src={logo} alt="Logo" className="h-12 w-36 object-contain" />
             <button onClick={closeDrawer}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
