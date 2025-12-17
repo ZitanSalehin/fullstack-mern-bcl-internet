@@ -4,7 +4,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { popularBadge, router } from "../assets/index";
+import { popularBadge } from "../assets/index";
 import ConnectionSupport from "../pages/home/ConnectionSupport";
 
 export default function PackageCards() {
@@ -64,7 +64,7 @@ export default function PackageCards() {
   return (
     <section className="py-10 px-4 md:px-0 bg-gray-50">
       <h1 className="text-center text-4xl font-semibold nato pb-10">
-        Home Internet <span className="text-[#0E4F9D]">Packages</span>
+        Home Internet <span className="text-[#00719c]">Packages</span>
       </h1>
 
       {/* Filter Sliders */}
@@ -79,7 +79,7 @@ export default function PackageCards() {
           unit="BDT"
           open={openPrice}
           setOpen={setOpenPrice}
-          trackColor="#0E4F9D"
+          trackColor="#00719c"
         />
 
         {/* SPEED FILTER */}
@@ -93,7 +93,7 @@ export default function PackageCards() {
           step={5}
           open={openSpeed}
           setOpen={setOpenSpeed}
-          trackColor="#0E4F9D"
+          trackColor="#00719c"
         />
       </div>
 
@@ -116,7 +116,7 @@ export default function PackageCards() {
       </div>
 
       <br />
-      <img src={router} alt="" />
+
       <div id="connection-support">
         <ConnectionSupport />
       </div>
@@ -147,10 +147,10 @@ function SliderFilter({
       <div className="flex justify-between items-center mb-4">
         <div className="text-2xl font-semibold w-full">
           <div className="flex justify-between items-center">
-            <div className="text-[#0E4F9D]">{title}:</div>
+            <div className="text-[#00719c]">{title}:</div>
             <button
               onClick={() => setOpen(!open)}
-              className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#0E4F9D] text-white transition-colors duration-300 cursor-pointer"
+              className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#00719c] text-white transition-colors duration-300 cursor-pointer"
             >
               {open ? <X size={24} /> : <ChevronDown size={24} />}
             </button>
@@ -255,7 +255,7 @@ function PackageCard({ pkg }) {
               .getElementById("connection-support")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="mt-5 w-full bg-[#0E4F9D] hover:bg-blue-800 text-white font-semibold py-2 rounded-full cursor-pointer"
+          className="mt-5 w-full bg-[#00719c] hover:bg-blue-800 text-white font-semibold py-2 rounded-full cursor-pointer"
         >
           Choose this package
         </button>

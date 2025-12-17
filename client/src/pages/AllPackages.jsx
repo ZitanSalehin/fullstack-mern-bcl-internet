@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
-import { popularBadge, router } from "../assets/index";
+import { popularBadge } from "../assets/index";
 import ConnectionSupport from "./home/ConnectionSupport";
 
 const AllPackages = () => {
@@ -111,7 +111,7 @@ const AllPackages = () => {
                         .getElementById("connection-supports")
                         ?.scrollIntoView({ behavior: "smooth" })
                     }
-                    className="mt-5 w-full bg-[#0E4F9D] hover:bg-blue-800 text-white font-semibold py-2 rounded-full cursor-pointer"
+                    className="mt-5 w-full bg-[#00719c] hover:bg-blue-800 text-white font-semibold py-2 rounded-full cursor-pointer"
                   >
                     Choose this package
                   </button>
@@ -126,7 +126,6 @@ const AllPackages = () => {
       </div>
 
       <div className="w-full">
-        <img src={router} alt="" />
         <div id="connection-supports">
           <ConnectionSupport />
         </div>

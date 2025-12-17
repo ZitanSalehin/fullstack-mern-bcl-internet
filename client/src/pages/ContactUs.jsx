@@ -24,7 +24,7 @@ const ContactUs = () => {
               className="flex flex-col items-center gap-4 text-center"
             >
               <div className="w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center rounded-full bg-blue-100 transition hover:scale-110">
-                <Icon size={48} className="text-[#0E4F9D]" />
+                <Icon size={48} className="text-[#00719c]" />
               </div>
               <p className="text-sm lg:text-xl font-semibold">{label}</p>
             </div>
@@ -42,7 +42,7 @@ const ContactUs = () => {
               <div className="text-center max-w-2xl mx-auto mb-10">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                   Choose your channel to{" "}
-                  <span className="text-[#0E4F9D]">reach us</span>
+                  <span className="text-[#00719c]">reach us</span>
                 </h2>
                 <p className="text-gray-600 text-lg">
                   via Email, Text or Call. We are here for you.
@@ -52,7 +52,7 @@ const ContactUs = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Call */}
                 <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:-translate-y-1 hover:shadow-2xl transition-all">
-                  <h3 className="text-xl font-semibold text-[#0E4F9D] mb-3">
+                  <h3 className="text-xl font-semibold text-[#00719c] mb-3">
                     Call Us At
                   </h3>
                   <p className="text-2xl font-semibold">16335</p>
@@ -62,7 +62,7 @@ const ContactUs = () => {
 
                 {/* Mail */}
                 <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:-translate-y-1 hover:shadow-2xl transition-all">
-                  <h3 className="text-xl font-semibold text-[#0E4F9D] mb-3">
+                  <h3 className="text-xl font-semibold text-[#00719c] mb-3">
                     Mail Us At
                   </h3>
                   <p className="text-lg sm:text-xl font-semibold">
@@ -72,7 +72,7 @@ const ContactUs = () => {
 
                 {/* Facebook */}
                 <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:-translate-y-1 hover:shadow-2xl transition-all">
-                  <h3 className="text-xl font-semibold text-[#0E4F9D] mb-3">
+                  <h3 className="text-xl font-semibold text-[#00719c] mb-3">
                     Knock Us At
                   </h3>
                   <a
@@ -91,7 +91,7 @@ const ContactUs = () => {
             <section>
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold">
-                  Our Service <span className="text-[#0E4F9D]">Offices</span>
+                  Our Service <span className="text-[#00719c]">Offices</span>
                 </h2>
                 <p className="text-gray-600 mt-2 text-lg">
                   Visit our offices for dedicated support.
@@ -101,13 +101,13 @@ const ContactUs = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Office Info */}
                 <div className="bg-white shadow-xl rounded-2xl p-6 md:p-8 border border-gray-100">
-                  <h3 className="text-2xl font-semibold mb-4 text-[#0E4F9D]">
+                  <h3 className="text-2xl font-semibold mb-4 text-[#00719c]">
                     Dhaka Service Office
                   </h3>
 
                   <div className="space-y-4 text-gray-700">
                     <div className="flex items-start gap-3">
-                      <MapPin size={22} className="text-[#0E4F9D]" />
+                      <MapPin size={22} className="text-[#00719c]" />
                       <p>
                         BCL Technologies Ltd, House #16, Road #2, Block #F
                         <br />
@@ -116,12 +116,12 @@ const ContactUs = () => {
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <Phone size={20} className="text-[#0E4F9D]" />
+                      <Phone size={20} className="text-[#00719c]" />
                       <p>16335 / 01971497026</p>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <Mail size={20} className="text-[#0E4F9D]" />
+                      <Mail size={20} className="text-[#00719c]" />
                       <p>support@bcl.net</p>
                     </div>
                   </div>

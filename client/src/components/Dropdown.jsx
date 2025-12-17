@@ -51,7 +51,7 @@ const Dropdown = ({ title, items }) => {
         {items.map((item, i) => (
           <div
             key={i}
-            className="px-4 py-2 transition-all hover:bg-[#0E4F9D] hover:text-white cursor-pointer"
+            className="px-4 py-2 transition-all hover:bg-[#00719c] hover:text-white cursor-pointer"
           >
             {item.label}
           </div>

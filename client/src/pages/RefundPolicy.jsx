@@ -3,7 +3,7 @@ const RefundPolicy = () => {
     <main className="bg-gray-50 py-16 px-6 md:px-20">
       {/* Page Title */}
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#F26D52] mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#00719C] mb-4">
           Refund & Cancellation Policy
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
@@ -16,7 +16,7 @@ const RefundPolicy = () => {
       <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-8 border border-gray-100 space-y-8">
         {/* Section 1 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             1. Service Activation
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -28,7 +28,7 @@ const RefundPolicy = () => {
 
         {/* Section 2 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             2. Refund Eligibility
           </h2>
           <ul className="list-disc pl-5 text-gray-700 space-y-2">
@@ -49,7 +49,7 @@ const RefundPolicy = () => {
 
         {/* Section 3 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             3. Cancellation Policy
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -61,7 +61,7 @@ const RefundPolicy = () => {
 
         {/* Section 4 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             4. Billing & Payments
           </h2>
           <ul className="list-disc pl-5 text-gray-700 space-y-2">
@@ -79,7 +79,7 @@ const RefundPolicy = () => {
 
         {/* Section 5 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             5. Non-Refundable Items
           </h2>
           <ul className="list-disc pl-5 text-gray-700 space-y-2">
@@ -93,7 +93,7 @@ const RefundPolicy = () => {
 
         {/* Section 6 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             6. Service Disconnection
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -105,7 +105,7 @@ const RefundPolicy = () => {
 
         {/* Section 7 */}
         <section>
-          <h2 className="text-2xl font-semibold text-[#F26D52] mb-3">
+          <h2 className="text-2xl font-semibold text-[#00719C] mb-3">
             7. Contact for Refund or Billing Support
           </h2>
           <p className="text-gray-700">

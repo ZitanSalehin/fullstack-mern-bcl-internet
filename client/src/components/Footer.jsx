@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <div className="bg-blue-700 text-white p-3 inline-block rounded">
+              <div className="bg-[#00719C] text-white p-3 inline-block rounded">
                 <div className="font-bold text-2xl">BCL</div>
                 <div className="text-xs">Online Service Company</div>
               </div>
@@ -31,7 +31,7 @@ const Footer = () => {
                 Facilitate seamless information flow through innovative ICT
                 infrastructure and services.
               </p>
-              <p className="text-sm text-blue-600">
+              <p className="text-sm text-[#00719C]">
                 BCL Technologies Limited is ISO 9001:2015 Certified Company
               </p>
             </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                 BCL is committed to ensuring information security by complying
                 applicable ISO 27001:2022 standard & regulatory requirements and
                 continually improving the{" "}
-                <span className="text-blue-600">ISMS</span> to support our
+                <span className="text-[#00719C]">ISMS</span> to support our
                 business objectives.
               </p>
             </div>
@@ -52,27 +52,27 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Other Pages</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › Home
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › Business
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › Packages
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › News & Events
                 </a>
               </li>
@@ -84,27 +84,27 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › Career
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › Our Policies
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › Self Care
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › BTRC Approved Tariff
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-blue-600">
+                <a href="#" className="text-gray-700 hover:text-[#00719C]">
                   › FAQ
                 </a>
               </li>
@@ -116,14 +116,14 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Contact Us</h3>
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-blue-600" />
+                <Phone className="w-5 h-5 text-[#00719C]" />
                 <div>
                   <div className="font-semibold">16335</div>
                   <div className="text-sm">09678-123123</div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-blue-600" />
+                <Mail className="w-5 h-5 text-[#00719C]" />
                 <div className="text-sm">info@BCL.net</div>
               </div>
             </div>

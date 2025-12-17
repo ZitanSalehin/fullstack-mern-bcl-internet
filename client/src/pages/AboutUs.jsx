@@ -80,28 +80,27 @@ const AboutUs = () => {
             BCL Technologies Limited
           </h2>
 
-          <p className="text-gray-700 leading-relaxed text-justify mb-12">
-            Beginning our journey in the year 2000, BCL Technologies Limited is
-            a leading IT solution provider offering a range of solutions
-            including IP telephony, cybersecurity, Office 365 and fixed fiber
-            broadband connections across both the retail and corporate markets
-            of Bangladesh.
+          <p className="text-gray-700 leading-relaxed mb-12 text-lg text-center">
+            Founded in 2000, BCL Technologies Limited is a leading IT solutions
+            provider in Bangladesh, delivering a wide range of services
+            including IP telephony, cybersecurity solutions, Office 365, and
+            high-speed fixed fiber broadband for both retail and corporate
+            customers.
             <br />
             <br />
-            In October of 2021, BCL crossed 100k retail broadband connections,
-            becoming the largest ISP in the country in terms of active
-            subscribers. BCL is also a pioneer in offering integrated solutions
-            in the corporate sector of Bangladesh and is the only ISP connected
-            with every bank in the country.
+            In October 2021, BCL surpassed 100,000 active retail broadband
+            connections, establishing itself as the largest ISP in the country
+            by subscriber base. The company is also a pioneer in delivering
+            integrated IT solutions to the corporate sector and remains the only
+            ISP connected with every bank in Bangladesh.
             <br />
             <br />
-            At BCL, we place the customer at the center of our business and our
-            highly trained team of professionals ensure a level of quality and
-            service which remain unmatched. We believe in innovating to simplify
-            and in taking ownership of our actions and services. Whether it be
-            people or organizations, we see it as our duty to enrich the lives
-            of all our customers and to become the preferred choice for a
-            digital lifestyle in the market.
+            At BCL, our customers are at the heart of everything we do. Our
+            highly skilled professionals are committed to delivering exceptional
+            quality and unmatched service. Driven by innovation, accountability,
+            and simplicity, we strive to enrich the lives of individuals and
+            organizations alike—positioning BCL as the preferred partner for a
+            connected and digital lifestyle.
           </p>
 
           {/* ============= VISION + MISSION CARDS ============= */}
@@ -124,9 +123,9 @@ const AboutUs = () => {
                   Our Vision
                 </h3>
                 <p className="text-gray-200">
-                  In the next 5 years, BCL aspires to become the preferred
-                  choice in digital lifestyle using world-class technology and
-                  innovation.
+                  BCL is committed to delivering innovative, fast, and reliable
+                  technology solutions that simplify everyday life and empower
+                  organizations to grow and succeed in a digital world.
                 </p>
               </div>
             </div>
@@ -149,9 +148,9 @@ const AboutUs = () => {
                   Our Mission
                 </h3>
                 <p className="text-gray-200">
-                  To offer innovative, fast and reliable technology solutions
-                  that simplify the lives of individuals and empower
-                  organizations to grow in a digital world.
+                  Over the next five years, BCL aims to establish itself as the
+                  preferred choice for digital lifestyle solutions by leveraging
+                  world-class technology and continuous innovation.
                 </p>
               </div>
             </div>

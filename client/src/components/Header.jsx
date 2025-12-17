@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="w-full bg-white relative z-20">
       {/* Top Bar */}
-      <div className="hidden lg:block text-sm bg-primary">
+      <div className="hidden lg:block text-sm bg-[#00719c]">
         <div className="container mx-auto flex flex-row justify-end items-center py-2 px-4">
           <div className="flex items-center gap-2 text-white font-semibold">
             BRTC Approved
@@ -202,7 +202,7 @@ export default function Header() {
                 </Link>
                 <Link
                   to="/"
-                  className="bg-[#0E4F9D] text-white text-sm rounded-3xl px-3 py-3"
+                  className="bg-[#00719c] text-white text-sm rounded-3xl px-3 py-3"
                 >
                   Bill Pay
                 </Link>

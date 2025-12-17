@@ -143,10 +143,10 @@ export default function RangeSliderHome() {
             {/* Price Text */}
             <div className="text-2xl font-semibold w-full">
               <div className="flex justify-between items-center">
-                <div className="text-[#0E4F9D]">Price range:</div>
+                <div className="text-[#00719c]">Price range:</div>
                 <button
                   onClick={() => setOpenPrice(!openPrice)}
-                  className="flex items-center justify-center w-12 h-12 rounded-full bg-[#0E4F9D] text-white transition-colors duration-300 cursor-pointer"
+                  className="flex items-center justify-center w-12 h-12 rounded-full bg-[#00719c] text-white transition-colors duration-300 cursor-pointer"
                 >
                   {openPrice ? <X size={24} /> : <ChevronDown size={24} />}
                 </button>
@@ -175,7 +175,7 @@ export default function RangeSliderHome() {
               value={price}
               onChange={(val) => setPrice(val)}
               allowCross={false}
-              trackStyle={[{ height: 12, backgroundColor: "#0E4F9D" }]}
+              trackStyle={[{ height: 12, backgroundColor: "#00719c" }]}
               railStyle={{ height: 12, backgroundColor: "lightgrey" }}
               handleStyle={[
                 {
@@ -183,14 +183,14 @@ export default function RangeSliderHome() {
                   width: 24,
                   marginTop: -6,
                   backgroundColor: "#fff",
-                  border: "4px solid #0E4F9D",
+                  border: "4px solid #00719c",
                 },
                 {
                   height: 24,
                   width: 24,
                   marginTop: -6,
                   backgroundColor: "#fff",
-                  border: "4px solid #0E4F9D",
+                  border: "4px solid #00719c",
                 },
               ]}
             />
@@ -207,10 +207,10 @@ export default function RangeSliderHome() {
             {/* Speed Label */}
             <div className="text-2xl font-semibold w-full">
               <div className="flex justify-between items-center">
-                <div className="text-[#0E4F9D]">Speed range:</div>
+                <div className="text-[#00719c]">Speed range:</div>
                 <button
                   onClick={() => setOpenSpeed(!openSpeed)}
-                  className="flex items-center justify-center w-12 h-12 rounded-full bg-[#0E4F9D] text-white transition-colors duration-300 cursor-pointer"
+                  className="flex items-center justify-center w-12 h-12 rounded-full bg-[#00719c] text-white transition-colors duration-300 cursor-pointer"
                 >
                   {openSpeed ? <X size={24} /> : <ChevronDown size={24} />}
                 </button>

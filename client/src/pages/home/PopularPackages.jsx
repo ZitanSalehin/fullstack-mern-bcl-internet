@@ -96,7 +96,7 @@ const PopularPackages = () => {
                 </ul>
               </div>
 
-              <button className="mt-5 w-full bg-[#0E4F9D] hover:bg-blue-700 text-white font-semibold py-2 rounded-full">
+              <button className="mt-5 w-full bg-[#00719c] hover:bg-blue-700 text-white font-semibold py-2 rounded-full">
                 Contact US
               </button>
             </section>

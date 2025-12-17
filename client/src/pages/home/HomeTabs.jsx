@@ -43,7 +43,7 @@ export default function HomeTabs({
               onClick={() => setActiveTab("packages")}
               className={`px-6 py-3 rounded-full font-semibold transition cursor-pointer ${
                 activeTab === "packages"
-                  ? "bg-[#0E4F9D] text-white"
+                  ? "bg-[#00719c] text-white"
                   : "bg-gray-200 text-gray-700"
               }`}
             >
@@ -54,7 +54,7 @@ export default function HomeTabs({
               onClick={() => setActiveTab("queries")}
               className={`px-6 py-3 rounded-full font-semibold transition cursor-pointer ${
                 activeTab === "queries"
-                  ? "bg-[#0E4F9D] text-white"
+                  ? "bg-[#00719c] text-white"
                   : "bg-gray-200 text-gray-700"
               }`}
             >
@@ -77,11 +77,11 @@ export default function HomeTabs({
                   <div className="flex justify-between items-center mb-4">
                     <div className="text-xl lg:text-2xl font-semibold w-full">
                       <div className="flex justify-between items-center">
-                        <div className="text-[#0E4F9D]">Price Range:</div>
+                        <div className="text-[#00719c]">Price Range:</div>
 
                         <button
                           onClick={() => setOpenPrice(!openPrice)}
-                          className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#0E4F9D] text-white cursor-pointer"
+                          className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#00719c] text-white cursor-pointer"
                         >
                           {openPrice ? (
                             <X size={24} />
@@ -112,7 +112,7 @@ export default function HomeTabs({
                       value={price}
                       onChange={(val) => setPrice(val)}
                       allowCross={false}
-                      trackStyle={[{ height: 12, backgroundColor: "#0E4F9D" }]}
+                      trackStyle={[{ height: 12, backgroundColor: "#00719c" }]}
                       railStyle={{ height: 12, backgroundColor: "lightgrey" }}
                       handleStyle={[
                         {
@@ -120,14 +120,14 @@ export default function HomeTabs({
                           width: 24,
                           marginTop: -6,
                           backgroundColor: "#fff",
-                          border: "4px solid #0E4F9D",
+                          border: "4px solid #00719c",
                         },
                         {
                           height: 24,
                           width: 24,
                           marginTop: -6,
                           backgroundColor: "#fff",
-                          border: "4px solid #0E4F9D",
+                          border: "4px solid #00719c",
                         },
                       ]}
                     />
@@ -145,11 +145,11 @@ export default function HomeTabs({
                   <div className="flex justify-between items-center mb-4">
                     <div className="text-xl lg:text-2xl font-semibold w-full">
                       <div className="flex justify-between items-center">
-                        <div className="text-[#0E4F9D]">Speed Range:</div>
+                        <div className="text-[#00719c]">Speed Range:</div>
 
                         <button
                           onClick={() => setOpenSpeed(!openSpeed)}
-                          className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#0E4F9D] text-white cursor-pointer"
+                          className="flex items-center justify-center w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#00719c] text-white cursor-pointer"
                         >
                           {openSpeed ? (
                             <X size={24} />
@@ -180,18 +180,18 @@ export default function HomeTabs({
                       value={speed}
                       onChange={(val) => setSpeed(val)}
                       allowCross={false}
-                      trackStyle={[{ height: 12, backgroundColor: "#0E4F9D" }]}
+                      trackStyle={[{ height: 12, backgroundColor: "#00719c" }]}
                       railStyle={{ height: 12, backgroundColor: "lightgrey" }}
                       handleStyle={[
                         {
-                          border: "4px solid #0E4F9D",
+                          border: "4px solid #00719c",
                           height: 24,
                           width: 24,
                           backgroundColor: "#fff",
                           marginTop: -6,
                         },
                         {
-                          border: "4px solid #0E4F9D",
+                          border: "4px solid #00719c",
                           height: 24,
                           width: 24,
                           backgroundColor: "#fff",
@@ -205,13 +205,13 @@ export default function HomeTabs({
               {/* View Result Button */}
               <button
                 onClick={handleViewResult}
-                className="px-6 py-2 flex justify-center mx-auto hover:bg-[#0E4F9D] text-[#0E4F9D] hover:text-white border-2 border-[#0E4F9D] rounded-4xl text-lg font-semibold h-fit self-center md:self-end cursor-pointer"
+                className="px-6 py-2 flex justify-center mx-auto hover:bg-[#00719c] text-[#00719c] hover:text-white border-2 border-[#00719c] rounded-4xl text-lg font-semibold h-fit self-center md:self-end cursor-pointer"
               >
                 View Result
               </button>
               <Link
                 to="/all-packages"
-                className="px-7 py-3 bg-gray-300 w-fit mt-10 flex justify-center mx-auto hover:bg-[#0E4F9D] text-[#0E4F9D] hover:text-white  rounded-4xl text-lg font-semibold h-fit self-center md:self-end cursor-pointer"
+                className="px-7 py-3 bg-gray-300 w-fit mt-10 flex justify-center mx-auto hover:bg-[#00719c] text-[#00719c] hover:text-white  rounded-4xl text-lg font-semibold h-fit self-center md:self-end cursor-pointer"
               >
                 View All Packages
               </Link>
