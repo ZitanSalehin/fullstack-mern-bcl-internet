@@ -23,7 +23,7 @@ export default function PackagesAdmin() {
   /* ================= FETCH ================= */
   const fetchPackages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/packages");
+      const res = await axios.get("https://bclonline.net/api/packages");
       setPackages(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Error fetching packages:", err);
@@ -83,7 +83,7 @@ export default function PackagesAdmin() {
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/api/packages/${editId}`, {
+        await axios.put(`https://bclonline.net/api/packages/${editId}`, {
           title: trimmedTitle,
           speed: Number(form.speed),
           price: Number(form.price),
@@ -91,7 +91,7 @@ export default function PackagesAdmin() {
         });
         setEditId(null);
       } else {
-        await axios.post("http://localhost:5000/api/packages", {
+        await axios.post("https://bclonline.net/api/packages", {
           title: trimmedTitle,
           speed: Number(form.speed),
           price: Number(form.price),
@@ -120,7 +120,7 @@ export default function PackagesAdmin() {
     if (!window.confirm("Delete this package?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/packages/${id}`);
+      await axios.delete(`https://bclonline.net/api/packages/${id}`);
       fetchPackages();
     } catch (err) {
       console.error("Delete error:", err);

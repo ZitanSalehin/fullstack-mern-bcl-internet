@@ -37,9 +37,9 @@ export default function Dashboard() {
         <h2 className="text-2xl font-bold text-blue-600 mb-4 lg:mb-8">
           Dashboard
         </h2>
-
+        <div className="p-2"></div>
         {/* Menu Container */}
-        <div className="flex lg:flex-col gap-4 flex-1">
+        <div className="flex flex-col gap-4 flex-1">
           {/* Image Uploader */}
           <button
             onClick={() => setActive("image")}
@@ -63,18 +63,17 @@ export default function Dashboard() {
           >
             🎁 Package Cards
           </button>
-        </div>
-
-        {/* Logout (Right in mobile, bottom in desktop) */}
-        <button
-          onClick={handleLogout}
-          className="
+          {/* Logout (Right in mobile, bottom in desktop) */}
+          <button
+            onClick={handleLogout}
+            className="
         bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 
         mt-0 lg:mt-auto
       "
-        >
-          Logout
-        </button>
+          >
+            Logout
+          </button>
+        </div>
       </aside>
 
       {/* -------- Main Content -------- */}

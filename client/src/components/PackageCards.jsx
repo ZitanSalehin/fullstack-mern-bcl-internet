@@ -19,7 +19,7 @@ export default function PackageCards() {
   // Fetch packages from API
   const fetchPackages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/packages");
+      const res = await axios.get("https://bclonline.net/api/packages");
       // Ensure speed and price are numbers
       const data = res.data.map((pkg) => ({
         ...pkg,

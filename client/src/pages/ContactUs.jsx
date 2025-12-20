@@ -55,9 +55,9 @@ const ContactUs = () => {
                   <h3 className="text-xl font-semibold text-[#00719c] mb-3">
                     Call Us At
                   </h3>
-                  <p className="text-2xl font-semibold">16335</p>
+                  <p className="text-2xl font-semibold">4444332</p>
                   <p className="text-gray-500">or</p>
-                  <p className="text-xl font-semibold">09678123123</p>
+                  <p className="text-xl font-semibold">03296781523</p>
                 </div>
 
                 {/* Mail */}
@@ -109,15 +109,15 @@ const ContactUs = () => {
                     <div className="flex items-start gap-3">
                       <MapPin size={22} className="text-[#00719c]" />
                       <p>
-                        BCL Technologies Ltd, House #16, Road #2, Block #F
+                        Lorem ipsum dolor sit amet consectetur.
                         <br />
-                        Niketan, Gulshan-1, Dhaka-1212
+                        Lorem, ipsum dolor.
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
                       <Phone size={20} className="text-[#00719c]" />
-                      <p>16335 / 01971497026</p>
+                      <p>324325 / 01354768821</p>
                     </div>
 
                     <div className="flex items-center gap-3">

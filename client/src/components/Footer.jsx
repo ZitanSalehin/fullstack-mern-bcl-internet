@@ -21,9 +21,9 @@ const Footer = () => {
             </div>
             <h3 className="font-bold text-lg mb-2">BCL Technologies Limited</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Police Plaza Concord, 13th Floor (Tower-1), Plot-02,
+              Lorem ipsum dolor sit amet.
               <br />
-              Road-144, Gulshan 1, Dhaka-1212
+              Lorem ipsum dolor sit amet adipisicing.
             </p>
             <div className="mb-4">
               <h4 className="font-semibold mb-2">QUALITY POLICY</h4>
@@ -118,8 +118,8 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[#00719C]" />
                 <div>
-                  <div className="font-semibold">16335</div>
-                  <div className="text-sm">09678-123123</div>
+                  <div className="font-semibold">17456</div>
+                  <div className="text-sm">09678-123456</div>
                 </div>
               </div>
               <div className="flex items-center gap-2">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../store/authSlice";
 // for logout
 import Cookies from "js-cookie";
@@ -44,35 +44,55 @@ export default function Login() {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto mt-20">
-      <input
-        className="border p-2 w-full"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        className="border p-2 w-full mt-2"
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button
-        className="mt-4 bg-blue-600 text-white px-4 py-2"
-        onClick={handleLogin}
-      >
-        {loading ? "Loading..." : "Login"}
-      </button>
-      {error && <p className="text-red-500 mt-2">{error}</p>}
-      <div className="p-4">
-        {/* logout btn */}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          Login
+        </h2>
+
+        <input
+          className="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+        />
+
+        <input
+          className="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
         <button
-          onClick={handleLogout}
-          className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+          className="w-full bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold py-3 rounded-lg mb-4"
+          onClick={handleLogin}
         >
-          Logout
+          {loading ? "Loading..." : "Login"}
         </button>
+
+        {error && (
+          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
+        )}
+
+        <div className="text-center">
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+          >
+            Logout
+          </button>
+        </div>
+        <div className="text-center mt-5">
+          <Link
+            to="/"
+            className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors"
+          >
+            Go To Home
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -74,12 +74,12 @@ export default function Header() {
               >
                 Quick Pay Bill
               </Link>
-              <Link
+              {/* <Link
                 to="/"
                 className="bg-tertiary text-white rounded-xl px-4 py-2"
               >
                 Bill Pay
-              </Link>
+              </Link> */}
             </li>
           </ul>
 
@@ -200,12 +200,12 @@ export default function Header() {
                 >
                   Quick Pay Bill
                 </Link>
-                <Link
+                {/* <Link
                   to="/"
                   className="bg-[#00719c] text-white text-sm rounded-3xl px-3 py-3"
                 >
                   Bill Pay
-                </Link>
+                </Link> */}
               </li>
             </div>
             <p className="border-b border-gray-400 p-2">BTRC Approved Tariff</p>

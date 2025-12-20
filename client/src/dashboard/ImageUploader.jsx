@@ -8,7 +8,7 @@ export default function ImageUploader() {
   // Fetch all saved images
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/hero");
+      const res = await axios.get("https://bclonline.net/api/hero");
       setImages(res.data);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -27,7 +27,7 @@ export default function ImageUploader() {
     formData.append("image", file);
 
     try {
-      await axios.post("http://localhost:5000/api/hero/upload", formData);
+      await axios.post("https://bclonline.net/api/hero/upload", formData);
       setFile(null);
       fetchImages();
     } catch (error) {
@@ -37,7 +37,7 @@ export default function ImageUploader() {
 
   // Delete Image
   const deleteImage = async (id) => {
-    await axios.delete(`http://localhost:5000/api/hero/${id}`);
+    await axios.delete(`https://bclonline.net/api/hero/${id}`);
     fetchImages();
   };
 
@@ -65,11 +65,10 @@ export default function ImageUploader() {
         {images.map((img) => (
           <div key={img._id} className="relative w-full h-64">
             <img
-              src={`http://localhost:5000${img.url}`}
+              src={`https://bclonline.net${img.url}`} // 👈 absolute URL
               className="w-full h-full object-cover rounded"
               alt="slider"
             />
-
             <button
               onClick={() => deleteImage(img._id)}
               className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded"

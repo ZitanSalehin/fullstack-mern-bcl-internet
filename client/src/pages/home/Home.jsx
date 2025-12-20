@@ -1,4 +1,3 @@
-import CompaniesProfileSlider from "../../components/slider/CompaniesProfileSlider";
 import HeroSlider from "../../components/slider/HeroSlider";
 
 import ConnectionSupport from "./ConnectionSupport";
@@ -12,7 +11,7 @@ const Home = () => {
       {/* <InternetPackages /> */}
 
       <ConnectionSupport />
-      <CompaniesProfileSlider />
+      {/* <CompaniesProfileSlider /> */}
     </div>
   );
 };

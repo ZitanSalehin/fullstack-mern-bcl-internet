@@ -11,7 +11,7 @@ const AllPackages = () => {
   // Fetch packages from API
   const fetchPackages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/packages");
+      const res = await axios.get("https://bclonline.net/api/packages");
       console.log("Fetched packages:", res.data);
 
       // Ensure privileges is always an array

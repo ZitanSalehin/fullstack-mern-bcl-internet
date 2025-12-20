@@ -1,66 +1,58 @@
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  aboutUs,
-  client10,
-  client11,
-  client12,
-  client13,
-  client8,
-  client9,
-} from "../assets/index";
+// import { Autoplay } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+import { aboutUs } from "../assets/index";
 
-const companies = [
-  {
-    id: 1,
-    logo: client8,
-  },
-  {
-    id: 2,
-    logo: client9,
-  },
-  {
-    id: 3,
-    logo: client10,
-  },
-  {
-    id: 4,
-    logo: client11,
-  },
-  {
-    id: 5,
-    logo: client12,
-  },
-  {
-    id: 6,
-    logo: client13,
-  },
-  {
-    id: 7,
-    logo: client8,
-  },
-  {
-    id: 8,
-    logo: client9,
-  },
-  {
-    id: 9,
-    logo: client10,
-  },
-  {
-    id: 10,
-    logo: client11,
-  },
-  {
-    id: 11,
-    logo: client12,
-  },
-  {
-    id: 12,
-    logo: client13,
-  },
-];
+// const companies = [
+//   {
+//     id: 1,
+//     logo: client8,
+//   },
+//   {
+//     id: 2,
+//     logo: client9,
+//   },
+//   {
+//     id: 3,
+//     logo: client10,
+//   },
+//   {
+//     id: 4,
+//     logo: client11,
+//   },
+//   {
+//     id: 5,
+//     logo: client12,
+//   },
+//   {
+//     id: 6,
+//     logo: client13,
+//   },
+//   {
+//     id: 7,
+//     logo: client8,
+//   },
+//   {
+//     id: 8,
+//     logo: client9,
+//   },
+//   {
+//     id: 9,
+//     logo: client10,
+//   },
+//   {
+//     id: 10,
+//     logo: client11,
+//   },
+//   {
+//     id: 11,
+//     logo: client12,
+//   },
+//   {
+//     id: 12,
+//     logo: client13,
+//   },
+// ];
 
 const AboutUs = () => {
   return (
@@ -156,7 +148,7 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
-        <section id="company-profile" className="text-gray-800 py-14">
+        {/* <section id="company-profile" className="text-gray-800 py-14">
           <div className="">
             <div className="text-center mb-10">
               <h3 className="text-3xl md:text-4xl font-semibold">
@@ -188,14 +180,12 @@ const AboutUs = () => {
                         className="w-full h-full object-contain"
                       />
                     </div>
-
-                    {/* <h3 className="mt-4 text-sm font-semibold">{company.name}</h3> */}
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
-        </section>
+        </section> */}
       </section>
     </main>
   );

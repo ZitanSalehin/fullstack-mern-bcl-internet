@@ -13,8 +13,8 @@ export default function HeroSlider() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/hero");
-        const urls = res.data.map((img) => `http://localhost:5000${img.url}`);
+        const res = await axios.get("https://bclonline.net/api/hero");
+        const urls = res.data.map((img) => `https://bclonline.net${img.url}`);
         setSlides(urls);
       } catch (err) {
         console.error("Error fetching images:", err);

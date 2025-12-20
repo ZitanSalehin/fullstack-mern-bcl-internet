@@ -6,7 +6,7 @@ const path = require("path");
 exports.uploadImage = async (req, res) => {
   try {
     const image = await HeroImage.create({
-      url: `/uploads/${req.file.filename}`, // saved path
+      url: `/api/uploads/${req.file.filename}`,
     });
     res.json(image);
   } catch (err) {
@@ -17,31 +17,28 @@ exports.uploadImage = async (req, res) => {
 // Get All Images
 exports.getImages = async (req, res) => {
   try {
-    const images = await HeroImage.find();
+    const images = await HeroImage.find().sort({ createdAt: -1 });
     res.json(images);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-// Delete Image (DB + uploads folder)
+// Delete Image
 exports.deleteImage = async (req, res) => {
   try {
-    // 1️⃣ Find the image in DB
     const image = await HeroImage.findById(req.params.id);
-    if (!image) return res.status(404).json({ message: "Image not found" });
+    if (!image) {
+      return res.status(404).json({ message: "Image not found" });
+    }
 
-    // 2️⃣ Delete file from uploads folder
-    const filePath = path.join(
-      __dirname,
-      "../uploads",
-      path.basename(image.url)
-    );
+    const filename = image.url.split("/").pop();
+    const filePath = path.resolve(__dirname, "../uploads", filename);
+
     fs.unlink(filePath, (err) => {
       if (err) console.error("File delete error:", err);
     });
 
-    // 3️⃣ Delete from DB
     await HeroImage.findByIdAndDelete(req.params.id);
 
     res.json({ message: "Image deleted successfully" });
