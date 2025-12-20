@@ -1,30 +1,30 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../src/components/Footer";
 import Header from "../src/components/Header";
 import ScrollToTop from "./utils/ScrollToTop";
 
-// const PASS_KEY = "1234";
+const PASS_KEY = "1234"; // 👈 change this number anytime
 
 const Layout = () => {
-  // const [input, setInput] = useState("");
-  // const [unlocked, setUnlocked] = useState(false);
+  const [input, setInput] = useState("");
+  const [unlocked, setUnlocked] = useState(false);
 
-  // const handleCheck = (e) => {
-  //   e.preventDefault();
-  //   if (input === PASS_KEY) {
-  //     setUnlocked(true);
-  //   }
-  // };
+  const handleCheck = (e) => {
+    e.preventDefault();
+    if (input === PASS_KEY) {
+      setUnlocked(true);
+    }
+  };
 
   return (
     <div className="relative min-h-screen">
       {/* Under Construction Overlay */}
-      {/* {!unlocked && (
+      {!unlocked && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/60 backdrop-blur-sm">
           <div className="rounded-2xl bg-white px-10 py-8 text-center shadow-2xl max-w-md">
             <h1 className="text-3xl font-bold text-gray-800 mb-3">
-              🚧 Site Under Construction
+              🚧 Site Is Under Construction
             </h1>
 
             <p className="text-gray-600 mb-4">
@@ -49,7 +49,7 @@ const Layout = () => {
             </form>
           </div>
         </div>
-      )} */}
+      )}
 
       <ScrollToTop />
       <Header />
