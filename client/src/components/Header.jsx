@@ -1,3 +1,4 @@
+import { LayoutDashboardIcon } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logo, mobileMenu } from "../assets/index";
@@ -74,12 +75,12 @@ export default function Header() {
               >
                 Quick Pay Bill
               </Link>
-              {/* <Link
-                to="/"
-                className="bg-tertiary text-white rounded-xl px-4 py-2"
+              <Link
+                to="/dashboard"
+                className="bg-tertiary flex items-center gap-2 text-white rounded-xl px-4 py-2"
               >
-                Bill Pay
-              </Link> */}
+                <LayoutDashboardIcon size="20" /> Dashboard
+              </Link>
             </li>
           </ul>
 
@@ -193,19 +194,19 @@ export default function Header() {
               Refund Policy
             </Link>
             <div className="border-b border-gray-400">
-              <li className="flex gap-2 pb-2">
+              <li className="flex flex-col gap-2 pb-2">
                 <Link
                   to="/"
-                  className="bg-orange-500 text-white text-sm rounded-3xl px-3 py-3"
+                  className="bg-orange-500 w-fit text-white text-sm rounded-lg px-3 py-3"
                 >
                   Quick Pay Bill
                 </Link>
-                {/* <Link
-                  to="/"
-                  className="bg-[#00719c] text-white text-sm rounded-3xl px-3 py-3"
+                <Link
+                  to="/dashboard"
+                  className="bg-[#00719c] flex gap-2 items-center text-white text-sm rounded-lg px-3 py-3 w-fit"
                 >
-                  Bill Pay
-                </Link> */}
+                  <LayoutDashboardIcon size="20" /> Dashboard
+                </Link>
               </li>
             </div>
             <p className="border-b border-gray-400 p-2">BTRC Approved Tariff</p>
